@@ -6,7 +6,7 @@ info:
 servers:
   - url: https://api-worley.xdr.us.paloaltonetworks.com
 paths:
-  /public_api/v1/incidents/get_incident_extra_data/: null
+  /public_api/v1/incidents/get_incident_extra_data/:
   post:
     operationId: GetExtraIncidentData
     summary: Get extra incident data
