@@ -1,0 +1,42 @@
+openapi: 3.0.0
+ 
+info:
+  title: Get Extra Incident Data
+  description: Get additional data for an incident from Cortex XDR.
+  version: 1.0.0
+ 
+servers:
+  - url: https://api-worley.xdr.us.paloaltonetworks.com
+ 
+paths:
+  /public_api/v1/incidents/get_incident_extra_data:
+    post:
+      operationId: GetExtraIncidentData
+      summary: Get extra incident data
+      parameters:
+       - in: header
+         name: x-xdr-auth-id
+         schema:
+           type: string
+         required: true
+         description: Default is 147
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                incident_id:
+                  type: string
+                  description: The incident ID.
+                alerts_limit:
+                  type: integer
+                  description: The maximum number of alerts to retrieve,default is 5
+          responses:
+            "200":
+              description: Successful response
+              content:
+                application/json:
+                  schema:
+                    type: object
